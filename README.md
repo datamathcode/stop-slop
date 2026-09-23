@@ -12,24 +12,35 @@ AI writing has patterns. Predictable phrases, structures, rhythms. This skill te
 
 ```
 stop-slop/
-├── SKILL.md              # Core instructions
+├── SKILL.md              # Core instructions (what Claude Desktop/API load)
 ├── references/
 │   ├── phrases.md        # Phrases to remove
 │   ├── structures.md     # Structural patterns to avoid
 │   └── examples.md       # Before/after transformations
+├── scripts/
+│   └── package.sh        # Builds dist/stop-slop.zip for Claude Desktop upload
 ├── README.md
 └── LICENSE
 ```
 
 ## Quick start
 
-**Claude Code:** Add this folder as a skill.
+**Claude Code:** symlink (or copy) this repo into a skills directory, keeping the `stop-slop` folder name.
 
-**Claude Projects:** Upload `SKILL.md` and reference files to project knowledge.
+```
+ln -s "$(pwd)" ~/.claude/skills/stop-slop   # personal, all projects
+ln -s "$(pwd)" .claude/skills/stop-slop     # this project only
+```
 
-**Custom instructions:** Copy core rules from `SKILL.md`.
+Claude Code picks it up automatically. It fires on its own when drafting or editing prose, or invoke it by name (`Use the stop-slop skill`).
 
-**API calls:** Include `SKILL.md` in your system prompt. Reference files load on demand.
+**Claude Desktop / claude.ai:** run `./scripts/package.sh` to build `dist/stop-slop.zip`, then upload it under Settings → Capabilities → Skills.
+
+**Claude Projects:** upload `SKILL.md` and the `references/` files to project knowledge.
+
+**Custom instructions:** copy the core rules from `SKILL.md`.
+
+**API calls:** include `SKILL.md` in your system prompt. Reference files load on demand.
 
 ## What it catches
 

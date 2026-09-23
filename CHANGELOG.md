@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-09-23
+
+### Changed
+
+- Removed nonstandard `metadata` block from SKILL.md frontmatter (`trigger`, `author`) — Claude Code only reads `name`/`description` to trigger a skill, and `author` duplicated the README's Author section.
+- Added `scripts/package.sh` to build `dist/stop-slop.zip` (SKILL.md + references/ only) for uploading as a Claude Desktop / claude.ai skill.
+- Rewrote README Quick Start with concrete install paths for Claude Code (`~/.claude/skills/stop-slop` personal, or `.claude/skills/stop-slop` project-scoped) and Claude Desktop.
+- Added CLAUDE.md documenting the skill's file responsibilities and distribution surfaces for future contributors.
+
 ## 2026-01-13
 
 ### Added
