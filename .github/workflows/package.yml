@@ -1,0 +1,17 @@
+name: Package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build skill zip
+        run: ./scripts/package.sh
+
+      - name: Verify zip exists
+        run: test -f dist/stop-slop.zip
